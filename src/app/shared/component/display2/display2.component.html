@@ -1,0 +1,6 @@
+<p class="alert alert-primary" *ngIf="userName;else noUsername">{{userName}}</p>
+<ng-template #noUsername>
+    <p class="alert alert-danger">
+        no username added
+    </p>
+</ng-template>
