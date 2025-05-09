@@ -9,6 +9,7 @@ import { SubjectService } from '../../service/subject.service';
 })
 export class Display1Component implements OnInit {
   userName !: string
+  userArr !: string[]
   constructor(
     private _subject : SubjectService
   ){}
@@ -20,6 +21,10 @@ export class Display1Component implements OnInit {
   fetchUserName(){
     this._subject.userName$.subscribe(res=>{
       this.userName = res
+    })
+
+    this._subject.userArray$.subscribe(res=>{
+      this.userArr=res
     })
   }
 }

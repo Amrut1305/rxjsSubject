@@ -5,7 +5,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SubjectService {
-  userName$ : Subject<string> = new Subject
+  userName$ : Subject<string> = new Subject()
+  userArray$ : Subject<string[]> = new Subject()
   constructor() { }
 
 }

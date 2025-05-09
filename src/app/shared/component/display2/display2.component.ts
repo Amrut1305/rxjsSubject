@@ -8,9 +8,10 @@ import { SubjectService } from '../../service/subject.service';
 })
 export class Display2Component implements OnInit {
   userName !: string
+  userArr !: string[]
   constructor(
     private _subject : SubjectService
-  ) { }
+  ){}
 
   ngOnInit(): void {
     this.fetchUserName()
@@ -20,6 +21,10 @@ export class Display2Component implements OnInit {
     this._subject.userName$.subscribe(res=>{
       this.userName = res
     })
+
+    this._subject.userArray$.subscribe(res=>{
+      this.userArr=res
+    })
   }
-  
+
 }

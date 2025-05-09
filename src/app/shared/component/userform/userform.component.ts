@@ -25,10 +25,13 @@ export class UserformComponent implements OnInit {
 
   onSubmit() {
     let userName :string = this.userForm.value['user']
+    let userArr:string[]= []
     console.log(userName);
     this.userForm.reset();
     this.userForm.markAsPristine();
     this._subject.userName$.next(userName);
+    userArr.push(userName)
+    this._subject.userArray$.next(userArr);
   }
 
 }

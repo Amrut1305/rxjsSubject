@@ -8,17 +8,22 @@ import { SubjectService } from '../../service/subject.service';
 })
 export class Display3Component implements OnInit {
   userName !: string
-    constructor(
-      private _subject : SubjectService
-    ) { }
-  
-    ngOnInit(): void {
-      this.fetchUserName()
-    }
-  
-    fetchUserName(){
-      this._subject.userName$.subscribe(res=>{
-        this.userName = res
-      })
-    }
+  userArr !: string[]
+  constructor(
+    private _subject : SubjectService
+  ){}
+
+  ngOnInit(): void {
+    this.fetchUserName()
+  }
+
+  fetchUserName(){
+    this._subject.userName$.subscribe(res=>{
+      this.userName = res
+    })
+
+    this._subject.userArray$.subscribe(res=>{
+      this.userArr=res
+    })
+  }
 }
